@@ -65,11 +65,6 @@ const UserContextProvider= ( {children} ) => {
                 .then(data => setAllUsersList(data))
                 .catch(err=>console.log(err)))
             .catch(err=>console.log(err))
-        setFormData({
-            firstName: "",
-            email: "",
-            city:""
-        })
     }
 
     const handleDeleteClick = (id) => {
