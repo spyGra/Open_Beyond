@@ -1,4 +1,4 @@
-import {useTableContext} from "../context/userContextProvider";
+import {useUserContext} from "../context/userContextProvider";
 
 const CreateNew = () => {
 
@@ -7,7 +7,7 @@ const CreateNew = () => {
         handleCreateClick,
         formData,
         setFormData
-    } = useTableContext()
+    } = useUserContext()
 
     return (
         <>
@@ -45,7 +45,6 @@ const CreateNew = () => {
                 <button onClick={handleCreateClick}>add new</button>
             </form>
             <button onClick={cancelAndSendToIndexPage}>cancel</button>
-            create
 
         </>
     )

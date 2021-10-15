@@ -4,13 +4,14 @@ const Navbar = () => {
     return (
         <ul>
             <li>
-                <Link to="/index">Home</Link>
+                <Link to="/admin/">Home</Link>
             </li>
             <li>
-                <Link to="/contact">Contact Me</Link>
+                <Link to="/admin/contact">Contact Me</Link>
             </li>
         </ul>
     )
 }
 
 export default Navbar;
+

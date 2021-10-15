@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch, useHistory} from "react-router-dom";
 import UserContextProvider from "./context/userContextProvider";
 import UpdateModal from "./modals/UpdateModal";
 import Login from "./screens/Login";
@@ -10,38 +10,53 @@ import CreateNew from "./screens/CreateNew";
 import NotFound from "./screens/NotFound";
 import Navbar from "./components/Navbar";
 
+const PrivateRoute = ({children}) => {
+    const history = useHistory();
+    const userId = sessionStorage.getItem('userId')
+    if(userId) {
+        return children
+    } else {
+        history.push('/')
+        return null
+    }
+}
+
 function App() {
-  return (
-    <Router>
-      <UserContextProvider>
-        <UpdateModal />
-          <Navbar />
-          <Switch>
-              <Route path= "/new">
-                  <CreateNew />
-              </Route>
-              <Route path= "/view/:id">
-                  <View />
-              </Route>
-              <Route path = "/contact">
-                  <ContactMe />
-              </Route>
-              <Route path = "/update/:id">
-                  <UpdateUser />
-              </Route>
-              <Route path = "/index">
-                  <Home />
-              </Route>
-              <Route exact path = "/">
-                  <Login />
-              </Route>
-              <Route path= "*">
-                  <NotFound />
-              </Route>
-          </Switch>
-      </UserContextProvider>
-    </Router>
-  );
+    return (
+        <Router>
+            <UserContextProvider>
+                <UpdateModal />
+                <Switch>
+                    <Route exact path="/">
+                        <Login />
+                    </Route>
+                    <Route path="/admin">
+                        <PrivateRoute>
+                            <Navbar />
+                            <Route path= "/admin/new">
+                                <CreateNew />
+                            </Route>
+                            <Route path= "/admin/view/:id">
+                                <View />
+                            </Route>
+                            <Route path = "/admin/contact">
+                                <ContactMe />
+                            </Route>
+                            <Route path = "/admin/update/:id">
+                                <UpdateUser />
+                            </Route>
+                            <Route exact path = "/admin">
+                                <Home />
+                            </Route>
+                        </PrivateRoute>
+                    </Route>
+                    <Route path= "*">
+                        <NotFound />
+                    </Route>
+                </Switch>
+            </UserContextProvider>
+        </Router>
+    );
 }
 
 export default App;

@@ -1,9 +1,16 @@
 import { useHistory } from "react-router-dom";
+import {useState} from "react";
 
 const Login = () => {
-    const history = useHistory();
-    const sendToHomePage = () => {
-        history.push("/index")
+    const history = useHistory()
+    const [userName, setUserName] = useState("")
+    const [userPassword, setUserPassword] = useState("")
+
+    const loginTo = () => {
+        if(userName==="spyros" && userPassword==="1234"){
+            sessionStorage.setItem('userId', '1')
+            history.push("/admin")
+        }
     }
 
     return(
@@ -12,18 +19,25 @@ const Login = () => {
             <form>
                 <p>first name</p>
                 <input
+                    value ={userName}
                     type="text"
                     name="fname"
                     autoComplete="off"
                     placeholder="Name.."
-                    required/>
+                    required
+                    onChange={(e)=>setUserName(e.target.value)}
+                />
                 <p>password</p>
-                <input type="password"
-                       name="password"
-                       autoComplete="off"
-                       placeholder="Password.."
-                       required/>
-                <button onClick={sendToHomePage}>add</button>
+                <input
+                    value={userPassword}
+                    type="password"
+                    name="password"
+                    autoComplete="off"
+                    placeholder="Password.."
+                    required
+                    onChange={(e)=>setUserPassword(e.target.value)}
+                />
+                <button onClick={loginTo}>add</button>
             </form>
         </div>
     )

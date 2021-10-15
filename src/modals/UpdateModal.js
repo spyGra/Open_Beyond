@@ -1,13 +1,13 @@
 import ReactDOM from 'react-dom';
 import styles from "./updateModal.module.scss";
-import {useTableContext} from "../context/userContextProvider";
+import {useUserContext} from "../context/userContextProvider";
 
 const UpdateModal = () => {
     const{
         showModal,
         changeModalVisibility,
         changeModalVisibilityAndSendToIndexPage
-    } = useTableContext()
+    } = useUserContext()
 
     if (showModal !== true){
         return ReactDOM.createPortal(

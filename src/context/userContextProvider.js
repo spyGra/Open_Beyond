@@ -6,7 +6,9 @@ const tableContext = createContext('')
 const UserContextProvider= ( {children} ) => {
     const [allUsersList, setAllUsersList] = useState([])
     const [showModal, setShowModal] = useState(true)
+    const [total, setTotal] = useState(0)
     const history = useHistory()
+    const [page, setPage] = useState(1)
     const [formData, setFormData] = useState({
         firstName: "",
         email: "",
@@ -15,7 +17,7 @@ const UserContextProvider= ( {children} ) => {
 
     const changeModalVisibilityAndSendToIndexPage = () =>{
         changeModalVisibility()
-        history.push("/index")
+        history.push("/admin")
         setFormData({
             firstName: "",
             email: "",
@@ -27,7 +29,7 @@ const UserContextProvider= ( {children} ) => {
         if(formData.firstName || formData.email || formData.city){
             changeModalVisibility()
         } else {
-            history.push("/index")
+            history.push("/admin")
         }
     }
 
@@ -72,7 +74,7 @@ const UserContextProvider= ( {children} ) => {
             method: 'DELETE',
         })
             .then(response => response.json())
-            .then((json) => fetch('http://localhost:5000/users')
+            .then((json) => fetch(`http://localhost:5000/users?_page=${page}`)
                 .then(response => response.json())
                 .then(data => setAllUsersList(data))
                 .catch(err=>console.log(err)))
@@ -80,7 +82,6 @@ const UserContextProvider= ( {children} ) => {
     }
 
     return (
-        <>
             <tableContext.Provider value={{
                 changeModalVisibilityAndSendToIndexPage,
                 changeModalVisibility,
@@ -88,6 +89,10 @@ const UserContextProvider= ( {children} ) => {
                 cancelAndSendToIndexPage,
                 handleEditClick,
                 handleDeleteClick,
+                total,
+                setTotal,
+                page,
+                setPage,
                 formData,
                 setFormData,
                 allUsersList,
@@ -96,11 +101,9 @@ const UserContextProvider= ( {children} ) => {
             }}>
                 {children}
             </tableContext.Provider>
-
-        </>
     )
 }
-export const useTableContext = () => {
+export const useUserContext = () => {
     return useContext(tableContext)
 }
 

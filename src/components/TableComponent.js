@@ -1,32 +1,33 @@
 import {useEffect, useState} from "react";
-import {useTableContext} from "../context/userContextProvider";
+import {useUserContext} from "../context/userContextProvider";
 import {useHistory} from "react-router-dom";
 
 const TableComponent = () => {
     const history = useHistory()
-
     const{
+        setTotal,
+        page,
         setAllUsersList,
         allUsersList,
         handleDeleteClick
-    } = useTableContext()
+    } = useUserContext()
 
     useEffect(()=>{
-        fetch('http://localhost:5000/users')
-            .then(response => response.json())
+        fetch(`http://localhost:5000/users?_page=${page}`)
+            .then(response => {
+                setTotal(response.headers.get('X-Total-Count'))
+               return response.json()
+            })
             .then(data => setAllUsersList(data))
             .catch(err=>console.log(err))
-    },[])
-
-
-
+    },[page])
 
     const users = allUsersList.map((item) => {
         return (
             <div key={item.id}>
                 <div id={item.id} >name:{item.name}, email:{item.email}</div>
-                <button onClick={()=>history.push(`/view/${item.id}`)}>view</button>
-                <button onClick={()=>history.push(`/update/${item.id}`)}>go to update new</button>
+                <button onClick={()=>history.push(`/admin/view/${item.id}`)}>view</button>
+                <button onClick={()=>history.push(`/admin/update/${item.id}`)}>update</button>
                 <button onClick={()=>handleDeleteClick(item.id)}>delete</button>
             </div>
         )
@@ -35,7 +36,7 @@ const TableComponent = () => {
     return (
         <div>
             {users}
-            <button onClick={()=>history.push(`/new`)}>go to new</button>
+            <button onClick={()=>history.push(`/admin/new`)}>go to new</button>
         </div>
     )
 }

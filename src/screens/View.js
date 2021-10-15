@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 
 
 
+
 const View = () => {
     const [user, setUser] = useState();
     const params = useParams();

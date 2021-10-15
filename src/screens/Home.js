@@ -1,10 +1,13 @@
-import Navbar from "../components/Navbar";
 import TableComponent from "../components/TableComponent";
+import Pagination from "../containers/Pagination";
+
+
 
 const Home = () => {
     return (
-        <div>
+        <div className="container">
             <TableComponent />
+            <Pagination />
         </div>
     )
 }
