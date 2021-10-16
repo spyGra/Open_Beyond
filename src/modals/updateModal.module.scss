@@ -11,28 +11,3 @@
     align-items: center;
     justify-content: center;
 }
-
-.modalContent{
-    min-height: 100px;
-    max-height: 500px;
-    min-width: 200px;
-    max-width: 400px;
-    position: absolute;
-    z-index: 11;
-    text-align: center;
-    background-color: #efdada;
-    border: none;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modalxButton{
-    background-color: red;
-    color: white;
-    padding:5px 10px 5px 10px;
-    margin: 20px;
-    border: none;
-    cursor: pointer;
-}

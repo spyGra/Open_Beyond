@@ -1,131 +1,183 @@
 {
   "users": [
     {
-      "firstName": "",
-      "email": "spyros@spyros",
-      "city": "dfa",
-      "id": 44
+      "firstName": "maria",
+      "lastName": "maraki",
+      "email": "maria@gmail",
+      "city": "athens",
+      "id": 1
     },
     {
-      "firstName": "undefinedfggs",
-      "email": "undefineddf@dfd",
-      "city": "undefinedfadf",
-      "id": 45
+      "firstName": "giorgos",
+      "lastName": "giorgakis",
+      "email": "giorgos@gmail",
+      "city": "athens",
+      "id": 2
     },
     {
-      "firstName": "",
-      "email": "",
-      "city": "",
-      "id": 46
+      "firstName": "stathis",
+      "lastName": "sthathakis",
+      "email": "stathis@gmail",
+      "city": "thessaloniki",
+      "id": 3
     },
     {
-      "firstName": "fgfgfdg",
-      "email": "gfgfdgf@edf",
-      "city": "fdgf",
-      "id": 49
+      "firstName": "kostas",
+      "lastName": "kostakis",
+      "email": "kostas@gmailllllll",
+      "city": "patra",
+      "id": 4
     },
     {
-      "firstName": "",
-      "email": "",
-      "city": "",
-      "id": 50
+      "firstName": "tasos",
+      "lastName": "tasoy",
+      "email": "tasos@gmail",
+      "city": "athens",
+      "id": 6
     },
     {
-      "firstName": "dsf",
-      "email": "df@jhj",
-      "city": "jjj",
-      "id": 51
+      "firstName": "kostas",
+      "lastName": "kostakis",
+      "email": "kostas@gmail",
+      "city": "athens",
+      "id": 11
     },
     {
-      "firstName": "mmmmmmmmmmmmmm",
-      "email": "mmmmmmmm@mmmmm",
-      "city": "mmmmmmmmmmmmmmmm",
-      "id": 52
+      "firstName": "panos",
+      "lastName": "panoylis",
+      "email": "panos@gmail",
+      "city": "patra",
+      "id": 13
     },
     {
-      "firstName": "df",
-      "email": "d@g",
-      "city": "gg",
-      "id": 54
+      "firstName": "nikos",
+      "lastName": "nikolaoy",
+      "email": "nikos@gmail",
+      "city": "athens",
+      "id": 14
     },
     {
-      "firstName": "fff",
-      "email": "f@ggg",
-      "city": "gg",
-      "id": 55
+      "firstName": "aggelos",
+      "lastName": "aggeloy",
+      "email": "aggelos@gmail",
+      "city": "athenss",
+      "id": 15
     },
     {
-      "firstName": "gg",
-      "email": "f@ff",
-      "city": "f",
-      "id": 56
+      "firstName": "petros",
+      "lastName": "petroy",
+      "email": "petros@gmail",
+      "city": "athenss",
+      "id": 16
     },
     {
-      "firstName": "df",
-      "email": "gh@f",
-      "city": "ff",
-      "id": 57
+      "firstName": "pavlos",
+      "lastName": "pavloy",
+      "email": "pavlos@gmail",
+      "city": "thessaloniki",
+      "id": 17
     },
     {
-      "firstName": "gg",
-      "email": "gg@gg",
-      "city": "ggg",
-      "id": 58
+      "firstName": "lefteris",
+      "lastName": "lefterakis",
+      "email": "lefteris@gmail",
+      "city": "athens",
+      "id": 18
     },
     {
-      "firstName": "hh",
-      "email": "hh@gggg",
-      "city": "ggg",
-      "id": 59
+      "firstName": "rena",
+      "lastName": "renaki",
+      "email": "rena@gmail",
+      "city": "athens",
+      "id": 19
     },
     {
-      "firstName": "ff",
-      "email": "ff@kkk",
-      "city": "kkk",
-      "id": 60
+      "firstName": "manonis",
+      "lastName": "manoy",
+      "email": "manolis@gmail",
+      "city": "arta",
+      "id": 20
     },
     {
-      "firstName": "jjjj",
-      "email": "jjj@uu",
-      "city": "uuuuuuuuuu",
-      "id": 61
+      "firstName": "anna",
+      "lastName": "annoyla",
+      "email": "anna@gmail",
+      "city": "ioannina",
+      "id": 21
     },
     {
-      "firstName": "fffff",
-      "email": "ggggggggg@iiiiiiii",
-      "city": "iiiiiiiiiiiiiii",
-      "id": 62
+      "firstName": "katia",
+      "lastName": "katinoy",
+      "email": "katia@gmail",
+      "city": "kavala",
+      "id": 22
     },
     {
-      "firstName": "fd",
-      "email": "df@ggg",
-      "city": "gggg",
-      "id": 63
+      "firstName": "petros",
+      "lastName": "petroy",
+      "email": "petros@gmail",
+      "city": "tripoli",
+      "id": 23
     },
     {
-      "firstName": "fff",
-      "email": "dddddd@f",
-      "city": "gggggggggg",
-      "id": 64
+      "firstName": "panos",
+      "lastName": "panoyliss",
+      "email": "panos@gmail",
+      "city": "patra",
+      "id": 25
     },
     {
-      "firstName": "dddddd",
-      "email": "ddd@ffff",
-      "city": "ffff",
-      "id": 65
+      "firstName": "tasos",
+      "lastName": "tasioy",
+      "email": "tasos@gmail",
+      "city": "thessaloniki",
+      "id": 26
     },
     {
-      "firstName": "gggg",
-      "email": "uuu@yyyy",
-      "city": "yyyy",
-      "id": 66
+      "firstName": "konstantina",
+      "lastName": "konsta",
+      "email": "konsta@gmail",
+      "city": "kalamata",
+      "id": 27
+    },
+    {
+      "firstName": "alexis",
+      "lastName": "alexioy",
+      "email": "alexis@gmail",
+      "city": "lamia",
+      "id": 28
+    },
+    {
+      "firstName": "giorgos",
+      "lastName": "goiorgakis",
+      "email": "giorgakis@gmail",
+      "city": "athens",
+      "id": 29
+    },
+    {
+      "firstName": "anestis",
+      "lastName": "anestoy",
+      "email": "anestis@gmail",
+      "city": "thessaloniki",
+      "id": 30
+    },
+    {
+      "firstName": "annoyla",
+      "lastName": "anni",
+      "email": "anni@gmail",
+      "city": "thessaloniki",
+      "id": 31
     }
   ],
   "auth": [
     {
       "username": "spyros",
       "password": "1234",
-      "id": "1"
+      "id": "1",
+      "firstName": "Spyros",
+      "lastName": "Gravanis",
+      "email": "email@gmail.com",
+      "phone": "699999999"
     }
   ]
 }

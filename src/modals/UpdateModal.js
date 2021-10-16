@@ -6,18 +6,36 @@ const UpdateModal = () => {
     const{
         showModal,
         changeModalVisibility,
-        changeModalVisibilityAndSendToIndexPage
+        changeModalVisibilityAndSendToHomePage
     } = useUserContext()
 
     if (showModal !== true){
         return ReactDOM.createPortal(
-            <div className={styles.modal}>
-                <div className={styles.modalContent}>
-                    Are you sure to leave this page:
-                    <button onClick={changeModalVisibilityAndSendToIndexPage}>yes</button>
-                    <button className={styles.modalxButton} onClick={changeModalVisibility}>No</button>
+            <div className="container">
+                <div className={styles.modal}>
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-body">
+                                <p className="display-6">Are you sure to leave this page?</p>
+                            </div>
+                            <div className="modal-footer">
+                                <button
+                                    type="button"
+                                    className="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                    onClick={changeModalVisibilityAndSendToHomePage}
+                                >Yes</button>
+                                <button
+                                    type="button"
+                                    className="btn btn-primary"
+                                    onClick={changeModalVisibility}
+                                >No</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>, document.querySelector("#modal-root")
+            </div>
+            , document.querySelector("#modal-root")
         )
     } else {
         return null

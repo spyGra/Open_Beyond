@@ -1,6 +1,7 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useUserContext} from "../context/userContextProvider";
 import {useHistory} from "react-router-dom";
+import Pagination from "../containers/Pagination";
 
 const TableComponent = () => {
     const history = useHistory()
@@ -24,20 +25,45 @@ const TableComponent = () => {
 
     const users = allUsersList.map((item) => {
         return (
-            <div key={item.id}>
-                <div id={item.id} >name:{item.name}, email:{item.email}</div>
-                <button onClick={()=>history.push(`/admin/view/${item.id}`)}>view</button>
-                <button onClick={()=>history.push(`/admin/update/${item.id}`)}>update</button>
-                <button onClick={()=>handleDeleteClick(item.id)}>delete</button>
-            </div>
+            <tr key={item.id}>
+                <td><div id={item.id} >{item.firstName} {item.lastName}</div></td>
+                <td><button
+                    type="button"
+                    onClick={()=>history.push(`/admin/view/${item.id}`)}
+                    className="btn btn-outline-info">
+                    <i className="bi bi-info-circle"/> info</button></td>
+                <td><button
+                    type="button"
+                    onClick={()=>history.push(`/admin/update/${item.id}`)}
+                    className="btn btn-outline-success">
+                    <i className="bi bi-pencil"/>edit</button></td>
+                <td><button
+                    type="button" onClick={()=>handleDeleteClick(item.id)}
+                    className="btn btn-outline-danger">
+                    <i className="bi bi-trash" />delete</button></td>
+            </tr>
         )
     })
 
     return (
-        <div>
-            {users}
-            <button onClick={()=>history.push(`/admin/new`)}>go to new</button>
-        </div>
+            <div className="my-4">
+                <table className="table caption-top">
+                    <caption>
+                        List of users
+                    </caption>
+                    <tbody>
+                    {users}
+                    </tbody>
+                </table>
+
+                <div className="my-4">
+                    <Pagination />
+                </div>
+
+                <div className="d-flex justify-content-center">
+                    <button className="my-4 btn btn-outline-primary" onClick={()=>history.push(`/admin/new`)}>Make new user</button>
+                </div>
+            </div>
     )
 }
 

@@ -4,29 +4,34 @@ import {useHistory} from "react-router-dom";
 const tableContext = createContext('')
 
 const UserContextProvider= ( {children} ) => {
+    const [user, setUser] = useState({
+            firstName: "",
+            lastName: "",
+            email: "",
+            city: ""
+        }
+    );
     const [allUsersList, setAllUsersList] = useState([])
     const [showModal, setShowModal] = useState(true)
     const [total, setTotal] = useState(0)
     const history = useHistory()
     const [page, setPage] = useState(1)
-    const [formData, setFormData] = useState({
-        firstName: "",
-        email: "",
-        city:""
-    })
 
-    const changeModalVisibilityAndSendToIndexPage = () =>{
+    const changeModalVisibilityAndSendToHomePage = () =>{
         changeModalVisibility()
-        history.push("/admin")
-        setFormData({
+        setUser({
             firstName: "",
+            lastName: "",
             email: "",
-            city:""
+            city: ""
         })
+        history.push("/admin")
+
     }
 
-    const cancelAndSendToIndexPage = () => {
-        if(formData.firstName || formData.email || formData.city){
+    const cancelAndSendToIndexPage = (e) => {
+        e.preventDefault()
+        if(user.firstName || user.lastName || user.email || user.city){
             changeModalVisibility()
         } else {
             history.push("/admin")
@@ -37,10 +42,11 @@ const UserContextProvider= ( {children} ) => {
         setShowModal(!showModal)
     }
 
-    const handleEditClick = (id) => {
+    const handleEditClick = (e, id) => {
+        e.preventDefault()
         fetch(`http://localhost:5000/users/${id}`, {
             method: 'PUT',
-            body: JSON.stringify(formData),
+            body: JSON.stringify(user),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
@@ -51,12 +57,19 @@ const UserContextProvider= ( {children} ) => {
                 .then(data => setAllUsersList(data))
                 .catch(err=>console.log(err)))
             .catch(err=>console.log(err))
+        setUser({
+            firstName: "",
+            lastName: "",
+            email: "",
+            city: ""
+        })
     }
 
-    const handleCreateClick = () => {
+    const handleCreateClick = (e) => {
+        e.preventDefault()
         fetch('http://localhost:5000/users', {
             method: 'POST',
-            body: JSON.stringify(formData),
+            body: JSON.stringify(user),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
@@ -67,6 +80,12 @@ const UserContextProvider= ( {children} ) => {
                 .then(data => setAllUsersList(data))
                 .catch(err=>console.log(err)))
             .catch(err=>console.log(err))
+        setUser({
+            firstName: "",
+            lastName: "",
+            email: "",
+            city: ""
+        })
     }
 
     const handleDeleteClick = (id) => {
@@ -83,18 +102,18 @@ const UserContextProvider= ( {children} ) => {
 
     return (
             <tableContext.Provider value={{
-                changeModalVisibilityAndSendToIndexPage,
+                changeModalVisibilityAndSendToHomePage,
                 changeModalVisibility,
                 handleCreateClick,
                 cancelAndSendToIndexPage,
                 handleEditClick,
                 handleDeleteClick,
+                user,
+                setUser,
                 total,
                 setTotal,
                 page,
                 setPage,
-                formData,
-                setFormData,
                 allUsersList,
                 setAllUsersList,
                 showModal,

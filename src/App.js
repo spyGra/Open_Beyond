@@ -8,7 +8,7 @@ import ContactMe from "./screens/ContactMe";
 import View from "./screens/View";
 import CreateNew from "./screens/CreateNew";
 import NotFound from "./screens/NotFound";
-import Navbar from "./components/Navbar";
+
 
 const PrivateRoute = ({children}) => {
     const history = useHistory();
@@ -32,7 +32,9 @@ function App() {
                     </Route>
                     <Route path="/admin">
                         <PrivateRoute>
-                            <Navbar />
+                            <Route exact path = "/admin">
+                                <Home />
+                            </Route>
                             <Route path= "/admin/new">
                                 <CreateNew />
                             </Route>
@@ -45,12 +47,12 @@ function App() {
                             <Route path = "/admin/update/:id">
                                 <UpdateUser />
                             </Route>
-                            <Route exact path = "/admin">
-                                <Home />
+                            <Route>
+                                <NotFound />
                             </Route>
                         </PrivateRoute>
                     </Route>
-                    <Route path= "*">
+                    <Route>
                         <NotFound />
                     </Route>
                 </Switch>
