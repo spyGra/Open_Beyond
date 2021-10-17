@@ -202,6 +202,13 @@
       "email": "tas@gmail",
       "city": "thessaloniki",
       "id": 36
+    },
+    {
+      "firstName": "katis",
+      "lastName": "katis",
+      "email": "katis@gmail",
+      "city": "Katerini",
+      "id": 37
     }
   ],
   "auth": [

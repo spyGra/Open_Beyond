@@ -16,12 +16,16 @@ const CreateNew = () => {
     <>
     <section className="vh-100 bg-light">
         <div className="container-fluid bg-light h-100 ">
-            <div className="row align-items-center bg-light">
+            <div className="row bg-light">
                 <div className="col-sm-2 col-lg-1">
-                    <Navbar />
+                    <div className="row mt-sm-5 pt-sm-5">
+                        <div className="col">
+                            <Navbar />
+                        </div>
+                    </div>
                 </div>
                 <div className="col-sm-10 col-lg-11">
-                    <div className="vh-120">
+                    <div className="vh-130">
                         <div className="py-5 h-100">
                             <div className="row d-flex justify-content-center align-items-center h-100 ">
                                 <div className="col-12 col-md-8 col-lg-6 col-xl-5">

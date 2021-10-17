@@ -18,9 +18,13 @@ const View = () => {
     return (
         <section className="vh-100 bg-light">
             <div className="container-fluid h-100">
-                <div className="row align-items-center bg-light">
+                <div className="row bg-light">
                     <div className="col-sm-2 col-lg-1">
-                        <Navbar />
+                        <div className="row mt-sm-5 pt-sm-5">
+                            <div className="col">
+                                <Navbar />
+                            </div>
+                        </div>
                     </div>
                     <div className="col-sm-10 col-lg-11">
                         <div style={{padding: "5% 0"}}>
