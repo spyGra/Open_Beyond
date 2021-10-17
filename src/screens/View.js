@@ -26,17 +26,17 @@ const View = () => {
                         <div style={{padding: "5% 0"}}>
                             <div className="d-flex justify-content-center my-5 top-100">
                                 <div className="card" style={{width: "50%"}}>
-                                    <div className="card-header display-2 text-light bg-primary">
+                                    <div className="card-header display-2 text-light bg-info">
                                         <i className="bi bi-info-square"/> Info
                                     </div>
                                     <ul className="list-group list-group-flush">
-                                        <li className="list-group-item bg-light text-primary">Name</li>
+                                        <li className="list-group-item bg-light text-info">Name</li>
                                         <li className="list-group-item">{user?.firstName}</li>
-                                        <li className="list-group-item bg-light text-primary">Family name</li>
+                                        <li className="list-group-item bg-light text-info">Family name</li>
                                         <li className="list-group-item">{user?.lastName}</li>
-                                        <li className="list-group-item bg-light text-primary">E-mail</li>
+                                        <li className="list-group-item bg-light text-info">E-mail</li>
                                         <li className="list-group-item">{user?.email}</li>
-                                        <li className="list-group-item bg-light text-primary">City</li>
+                                        <li className="list-group-item bg-light text-info">City</li>
                                         <li className="list-group-item">{user?.city}</li>
                                     </ul>
                                 </div>

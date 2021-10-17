@@ -26,7 +26,7 @@ const ContactMe = () => {
                                     <ul className="list-group list-group-flush">
                                         <li className="list-group-item bg-light text-primary">Name</li>
                                         <li className="list-group-item">{ myData?.firstName}</li>
-                                        <li className="list-group-item bg-light text-primary">Family</li>
+                                        <li className="list-group-item bg-light text-primary">Family name</li>
                                         <li className="list-group-item">{myData?.lastName}</li>
                                         <li className="list-group-item bg-light text-primary">E-mail</li>
                                         <li className="list-group-item">{myData?.email}</li>

@@ -59,7 +59,7 @@
     {
       "firstName": "aggelos",
       "lastName": "aggeloy",
-      "email": "aggelos@gmail",
+      "email": "aggelo@sgmail",
       "city": "athenss",
       "id": 15
     },
@@ -197,18 +197,11 @@
       "id": 35
     },
     {
-      "firstName": "Tasos",
-      "lastName": "Tasoy",
-      "email": "tasos@gmail",
-      "city": "Athens",
+      "firstName": "tasia",
+      "lastName": "tasoyla",
+      "email": "tas@gmail",
+      "city": "thessaloniki",
       "id": 36
-    },
-    {
-      "firstName": "anestis",
-      "lastName": "anestoy",
-      "email": "anestis@gmail",
-      "city": "Patra",
-      "id": 37
     }
   ],
   "auth": [

@@ -36,7 +36,7 @@ const UpdateUser = () => {
                                     <div className="col-12 col-md-8 col-lg-6 col-xl-5">
                                         <div className="card shadow-2-strong" style={{borderRadius: "3px"}}>
                                             <div className="card-body p-5 text-center">
-                                                <h3 className="mb-5">Create user</h3>
+                                                <h3 className="mb-5">Update user</h3>
                                                 <form onSubmit ={(e)=>handleEditClick(e, id)}>
                                                     <div className="form-floating mb-4">
                                                         <input
@@ -95,7 +95,7 @@ const UpdateUser = () => {
                                                         <label className="form-label" htmlFor="loginName">City</label>
                                                     </div>
                                                     <button
-                                                        className="btn btn-primary btn-lg btn-block"
+                                                        className="btn btn-success btn-lg btn-block"
                                                         type="submit"
                                                     >Update user</button>
                                                     <button
@@ -130,7 +130,7 @@ const UpdateUser = () => {
                     </p>
                 </div>
                 <div className="modal-footer">
-                    <button className="btn btn-primary"
+                    <button className="btn btn-success"
                             data-bs-dismiss="modal"
                             onClick={cancelAndSendToHomePage}
                     >Yes</button>
