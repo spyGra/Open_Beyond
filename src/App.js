@@ -1,6 +1,5 @@
 import {BrowserRouter as Router, Route, Switch, useHistory} from "react-router-dom";
 import UserContextProvider from "./context/userContextProvider";
-import UpdateModal from "./modals/UpdateModal";
 import Login from "./screens/Login";
 import Home from "./screens/Home";
 import UpdateUser from "./screens/UpdateUser";
@@ -25,7 +24,6 @@ function App() {
     return (
         <Router>
             <UserContextProvider>
-                <UpdateModal />
                 <Switch>
                     <Route exact path="/">
                         <Login />
@@ -46,9 +44,6 @@ function App() {
                             </Route>
                             <Route path = "/admin/update/:id">
                                 <UpdateUser />
-                            </Route>
-                            <Route>
-                                <NotFound />
                             </Route>
                         </PrivateRoute>
                     </Route>

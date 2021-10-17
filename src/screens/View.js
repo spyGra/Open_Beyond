@@ -16,34 +16,28 @@ const View = () => {
     console.log("data",user)
 
     return (
-        <section className="vh-100">
-            <div className="container-fluid bg-light h-100">
-                <div className="row align-items-center ">
+        <section className="vh-100 bg-light">
+            <div className="container-fluid h-100">
+                <div className="row align-items-center bg-light">
                     <div className="col-sm-2 col-lg-1">
                         <Navbar />
                     </div>
                     <div className="col-sm-10 col-lg-11">
-                        <div style={{padding: "200px 0"}}>
+                        <div style={{padding: "5% 0"}}>
                             <div className="d-flex justify-content-center my-5 top-100">
                                 <div className="card" style={{width: "50%"}}>
+                                    <div className="card-header display-2 text-light bg-primary">
+                                        <i className="bi bi-info-square"/> Info
+                                    </div>
                                     <ul className="list-group list-group-flush">
-                                        <li className="list-group-item display-2 text-secondary"><i className="bi bi-info-square"/> Users Info</li>
-                                        <li className="input-group mb-3 ">
-                                            <span className="input-group-text" id="basic-addon1">Name:</span>
-                                            <span className="form-control">{ user?.firstName}</span>
-                                        </li>
-                                        <li className="input-group mb-3 ">
-                                            <span className="input-group-text" id="basic-addon1">Family name:</span>
-                                            <span className="form-control">{user?.lastName}</span>
-                                        </li>
-                                        <li className="input-group mb-3 ">
-                                            <span className="input-group-text" id="basic-addon1">E-mail:</span>
-                                            <span className="form-control">{user?.email}</span>
-                                        </li>
-                                        <li className="input-group mb-3 ">
-                                            <span className="input-group-text" id="basic-addon1">City:</span>
-                                            <span className="form-control">{user?.city}</span>
-                                        </li>
+                                        <li className="list-group-item bg-light text-primary">Name</li>
+                                        <li className="list-group-item">{user?.firstName}</li>
+                                        <li className="list-group-item bg-light text-primary">Family name</li>
+                                        <li className="list-group-item">{user?.lastName}</li>
+                                        <li className="list-group-item bg-light text-primary">E-mail</li>
+                                        <li className="list-group-item">{user?.email}</li>
+                                        <li className="list-group-item bg-light text-primary">City</li>
+                                        <li className="list-group-item">{user?.city}</li>
                                     </ul>
                                 </div>
                             </div>

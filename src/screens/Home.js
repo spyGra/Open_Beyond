@@ -3,9 +3,9 @@ import Navbar from "../components/Navbar";
 
 const Home = () => {
     return (
-        <section className="vh-100">
-            <div className="container-fluid bg-light h-100">
-                <div className="row align-items-center ">
+        <section className="vh-100 bg-light">
+            <div className="container-fluid h-100">
+                <div className="row align-items-center bg-light">
                     <div className="col-sm-2 col-lg-1">
                         <Navbar />
                     </div>

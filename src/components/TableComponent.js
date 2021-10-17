@@ -26,7 +26,8 @@ const TableComponent = () => {
     const users = allUsersList.map((item) => {
         return (
             <tr key={item.id}>
-                <td><div id={item.id} >{item.firstName} {item.lastName}</div></td>
+                <td className="col-8"><div className="float-start" id={item.id} >{item.firstName} {item.lastName}</div></td>
+
                 <td><button
                     type="button"
                     onClick={()=>history.push(`/admin/view/${item.id}`)}
@@ -46,12 +47,15 @@ const TableComponent = () => {
     })
 
     return (
-            <div className="my-4">
+            <div className="my-2">
                 <table className="table caption-top">
-                    <caption>
-                        List of users
-                    </caption>
                     <tbody>
+                    <tr className="bg-primary text-light">
+                        <td className="col-8">Name</td>
+                        <td>Info</td>
+                        <td>Edit</td>
+                        <td>Delete</td>
+                    </tr>
                     {users}
                     </tbody>
                 </table>

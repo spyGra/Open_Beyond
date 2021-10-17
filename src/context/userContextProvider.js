@@ -12,13 +12,11 @@ const UserContextProvider= ( {children} ) => {
         }
     );
     const [allUsersList, setAllUsersList] = useState([])
-    const [showModal, setShowModal] = useState(true)
     const [total, setTotal] = useState(0)
     const history = useHistory()
     const [page, setPage] = useState(1)
 
-    const changeModalVisibilityAndSendToHomePage = () =>{
-        changeModalVisibility()
+    const cancelAndSendToHomePage = () =>{
         setUser({
             firstName: "",
             lastName: "",
@@ -26,20 +24,15 @@ const UserContextProvider= ( {children} ) => {
             city: ""
         })
         history.push("/admin")
-
     }
 
-    const cancelAndSendToIndexPage = (e) => {
+    const cancelValidation = (e) => {
         e.preventDefault()
         if(user.firstName || user.lastName || user.email || user.city){
-            changeModalVisibility()
+            return false
         } else {
             history.push("/admin")
         }
-    }
-
-    const changeModalVisibility = () => {
-        setShowModal(!showModal)
     }
 
     const handleEditClick = (e, id) => {
@@ -102,10 +95,9 @@ const UserContextProvider= ( {children} ) => {
 
     return (
             <tableContext.Provider value={{
-                changeModalVisibilityAndSendToHomePage,
-                changeModalVisibility,
+                cancelAndSendToHomePage,
                 handleCreateClick,
-                cancelAndSendToIndexPage,
+                cancelValidation,
                 handleEditClick,
                 handleDeleteClick,
                 user,
@@ -116,7 +108,6 @@ const UserContextProvider= ( {children} ) => {
                 setPage,
                 allUsersList,
                 setAllUsersList,
-                showModal,
             }}>
                 {children}
             </tableContext.Provider>

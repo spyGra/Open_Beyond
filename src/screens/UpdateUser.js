@@ -5,10 +5,11 @@ import Navbar from "../components/Navbar";
 
 const UpdateUser = () => {
     const {
-        cancelAndSendToIndexPage,
+        cancelValidation,
         handleEditClick,
         user,
-        setUser
+        setUser,
+        cancelAndSendToHomePage
     } = useUserContext();
 
     const params = useParams();
@@ -21,9 +22,10 @@ const UpdateUser = () => {
     },[])
 
     return (
-        <section className="vh-100">
-            <div className="container-fluid bg-light h-100">
-                <div className="row align-items-center">
+       <>
+        <section className="vh-100 bg-light">
+            <div className="container-fluid h-100">
+                <div className="row align-items-center bg-light">
                     <div className="col-sm-2 col-lg-1">
                         <Navbar />
                     </div>
@@ -35,7 +37,7 @@ const UpdateUser = () => {
                                         <div className="card shadow-2-strong" style={{borderRadius: "3px"}}>
                                             <div className="card-body p-5 text-center">
                                                 <h3 className="mb-5">Create user</h3>
-                                                <form>
+                                                <form onSubmit ={(e)=>handleEditClick(e, id)}>
                                                     <div className="form-floating mb-4">
                                                         <input
                                                             value={user.firstName}
@@ -68,7 +70,7 @@ const UpdateUser = () => {
                                                         <input
                                                             value={user.email}
                                                             name="email"
-                                                            type="text"
+                                                            type="email"
                                                             id="email"
                                                             className="form-control form-control-lg"
                                                             autoComplete="off"
@@ -95,12 +97,12 @@ const UpdateUser = () => {
                                                     <button
                                                         className="btn btn-primary btn-lg btn-block"
                                                         type="submit"
-                                                        onClick={(e)=>handleEditClick(e, id)}
                                                     >Update user</button>
                                                     <button
                                                         className="btn btn-secondary btn-lg btn-block m-2"
-                                                        type="submit"
-                                                        onClick={(e)=>cancelAndSendToIndexPage(e)}
+                                                        data-bs-toggle={(user?.firstName||user?.lastName||user?.email||user?.city)&& "modal"}
+                                                        data-bs-target={(user?.firstName||user?.lastName||user?.email||user?.city)&& "#reg-modal"}
+                                                        onClick={(e)=>cancelValidation(e)}
                                                     >Cancel</button>
                                                 </form>
                                             </div>
@@ -113,6 +115,30 @@ const UpdateUser = () => {
                 </div>
             </div>
         </section>
+    {/*Modal*/}
+    <div className="modal fade" id="reg-modal" aria-labelledby="modal-title" tabIndex="-1" aria-hidden="true">
+        <div className="modal-dialog">
+            <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title">Leaving the page</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+                    <p>
+                        Are you sure to cancel?
+                    </p>
+                </div>
+                <div className="modal-footer">
+                    <button className="btn btn-primary"
+                            data-bs-dismiss="modal"
+                            onClick={cancelAndSendToHomePage}
+                    >Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </>
     )
 }
 
