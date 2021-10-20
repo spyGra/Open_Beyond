@@ -13,8 +13,8 @@ const Pagination = () => {
     for(let i=0; i<totalPagesNumber ; i++){
         pageButtonNumbers.push(
             <li
-                className="page-item"
-                key={i}><button className="page-link text-primary"
+                className = {i+1 !== page? "page-item text-edit text-danger" : "page-item text-edit active"}
+                key={i}><button className={i+1 !== page? "page-link text-primary": "page-link text-light"}
                 onClick={()=>setPage(i + 1)}
             >{i + 1}</button></li>)
     }
