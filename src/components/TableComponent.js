@@ -9,7 +9,7 @@ const TableComponent = () => {
     const [modalItemLastName, setModalItemLastName] = useState("")
     const history = useHistory()
     const{
-        setTotal,
+        setTotalUsersNumber,
         page,
         setAllUsersList,
         allUsersList,
@@ -19,12 +19,12 @@ const TableComponent = () => {
     useEffect(()=>{
         fetch(`http://localhost:5000/users?_page=${page}`)
             .then(response => {
-                setTotal(response.headers.get('X-Total-Count'))
-               return response.json()
+                setTotalUsersNumber(response.headers.get('X-Total-Count'))
+                return response.json()
             })
             .then(data => setAllUsersList(data))
             .catch(err=>console.log(err))
-    },[page])
+    },[page, setAllUsersList, setTotalUsersNumber])
 
     const users = allUsersList.map((item) => {
         return (

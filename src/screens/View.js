@@ -11,9 +11,7 @@ const View = () => {
         fetch(`http://localhost:5000/users/${id}`)
             .then((response) => response.json())
             .then((data) => setUser(data));
-    },[])
-
-    console.log("data",user)
+    },[id])
 
     return (
         <section className="vh-100 bg-light">

@@ -5,7 +5,7 @@ const Navbar = () => {
         <div className="btn-group-vertical d-flex justify-content-center my-2">
             <Link className="btn btn-outline-primary" aria-current="page" to="/admin/"><i className="bi bi-house"/> Home</Link>
             <Link className="btn btn-outline-primary" to="/admin/contact"><i className="bi bi-envelope"/> Contact</Link>
-            <Link className="btn btn-outline-primary" to="/"><i className="bi bi-box-arrow-left"/> Logout</Link>
+            <Link className="btn btn-outline-primary" to="/" onClick={()=>{sessionStorage.clear()}}><i className="bi bi-box-arrow-left"/> Logout</Link>
         </div>
     )
 }

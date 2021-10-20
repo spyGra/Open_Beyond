@@ -8,7 +8,6 @@ const CreateNew = () => {
         handleCreateClick,
         user,
         setUser,
-        show,
         cancelAndSendToHomePage
     } = useUserContext()
 

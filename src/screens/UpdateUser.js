@@ -19,7 +19,7 @@ const UpdateUser = () => {
         fetch(`http://localhost:5000/users/${id}`)
             .then((response) => response.json())
             .then((data) => setUser(data));
-    },[])
+    },[id, setUser])
 
     return (
        <>

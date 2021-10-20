@@ -8,7 +8,6 @@ import View from "./screens/View";
 import CreateNew from "./screens/CreateNew";
 import NotFound from "./screens/NotFound";
 
-
 const PrivateRoute = ({children}) => {
     const history = useHistory();
     const userId = sessionStorage.getItem('userId')

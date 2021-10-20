@@ -12,9 +12,10 @@ const UserContextProvider= ( {children} ) => {
         }
     );
     const [allUsersList, setAllUsersList] = useState([])
-    const [total, setTotal] = useState(0)
+    const [totalUsersNumber, setTotalUsersNumber] = useState(0)
     const history = useHistory()
     const [page, setPage] = useState(1)
+
 
     const cancelAndSendToHomePage = () =>{
         setUser({
@@ -45,10 +46,7 @@ const UserContextProvider= ( {children} ) => {
             },
         })
             .then((response) => response.json())
-            .then((json) => fetch('http://localhost:5000/users')
-                .then(response => response.json())
-                .then(data => setAllUsersList(data))
-                .catch(err=>console.log(err)))
+            .then(() => history.push('/admin'))
             .catch(err=>console.log(err))
         setUser({
             firstName: "",
@@ -68,10 +66,7 @@ const UserContextProvider= ( {children} ) => {
             },
         })
             .then((response) => response.json())
-            .then((json) => fetch('http://localhost:5000/users')
-                .then(response => response.json())
-                .then(data => setAllUsersList(data))
-                .catch(err=>console.log(err)))
+            .then(() => history.push("/admin"))
             .catch(err=>console.log(err))
         setUser({
             firstName: "",
@@ -86,11 +81,13 @@ const UserContextProvider= ( {children} ) => {
             method: 'DELETE',
         })
             .then(response => response.json())
-            .then((json) => fetch(`http://localhost:5000/users?_page=${page}`)
-                .then(response => response.json())
+            .then(() => fetch(`http://localhost:5000/users?_page=${page}`)
+                .then(response =>{
+                    setTotalUsersNumber(response.headers.get('X-Total-Count'))
+                    return response.json()
+                })
                 .then(data => setAllUsersList(data))
                 .catch(err=>console.log(err)))
-            .catch(err=>console.log(err))
     }
 
     return (
@@ -102,8 +99,8 @@ const UserContextProvider= ( {children} ) => {
                 handleDeleteClick,
                 user,
                 setUser,
-                total,
-                setTotal,
+                totalUsersNumber,
+                setTotalUsersNumber,
                 page,
                 setPage,
                 allUsersList,
